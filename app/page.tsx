@@ -121,7 +121,7 @@ export default function Home() {
             transition={{ delay: 1.2, duration: 0.8 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Link href="/products" className="btn-gradient w-full sm:w-auto text-lg flex items-center justify-center gap-2 group">
+            <Link href="/products" className="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white shadow-lg shadow-green-500/30 font-semibold px-8 py-3 rounded-xl w-full sm:w-auto text-lg flex items-center justify-center gap-2 group transition-all">
               Shop Now <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link href="/style-quiz" className="w-full sm:w-auto px-8 py-3 rounded-xl border-2 border-white/30 text-white font-semibold hover:bg-white/10 transition-colors text-lg flex items-center justify-center gap-2">
@@ -202,8 +202,8 @@ export default function Home() {
                   key={cat}
                   onClick={() => { setActiveCategory(cat); setVisibleProducts(8); }}
                   className={`px-6 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${activeCategory === cat
-                      ? "bg-gray-900 text-white shadow-sm"
-                      : "text-gray-600 hover:text-gray-900"
+                    ? "bg-gray-900 text-white shadow-sm"
+                    : "text-gray-600 hover:text-gray-900"
                     }`}
                 >
                   {cat.charAt(0).toUpperCase() + cat.slice(1)}
