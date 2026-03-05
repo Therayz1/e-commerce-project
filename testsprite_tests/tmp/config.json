@@ -1,0 +1,18 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3000",
+  "executionArgs": {
+    "projectName": "ecommerce",
+    "projectPath": "c:\\Users\\cosku\\Desktop\\testsprite\\ecommerce",
+    "testIds": [],
+    "additionalInstruction": "",
+    "serverMode": "development",
+    "envs": {
+      "API_KEY": "sk-user-fffZi-icZhULVDaho9Pzx55TonQB55nZZs-mtQbSizib-DVZmWAbsyWmfmFPXnBuHiO4sZS8xGRCpYPgwpH0Mc9mv9Yn_0lINjoxTdVDDcIyFskj-KWpY7sIgGKerGEd_0E"
+    }
+  },
+  "serverPort": 51243,
+  "proxy": "http://c60faca3-d5a5-4558-b8b3-6d421ecbc577:7PCE4T69UAuqqzvJLm7BpVxBfD93qbqH@tun.testsprite.com:8080"
+}

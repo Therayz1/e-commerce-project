@@ -1,0 +1,28 @@
+﻿.next/types/app/style-quiz/page.ts(8,13): error TS2344: Type 'OmitWithTag<typeof import("C:/Users/cosku/Desktop/testsprite/ecommerce/app/style-quiz/page"), "metadata" | "default" | "viewport" | "config" | "generateStaticParams" | "revalidate" | "dynamic" | ... 6 more ... | "generateViewport", "">' does not satisfy the constraint '{ [x: string]: never; }'.
+  Property 'quizSteps' is incompatible with index signature.
+    Type 'readonly [{ readonly id: "gender"; readonly question: "Who are you shopping for?"; readonly type: "single"; readonly required: true; readonly options: readonly [{ readonly id: "womens"; readonly label: "Women's Fashion"; }, { ...; }, { ...; }]; }, { ...; }, { ...; }, { ...; }]' is not assignable to type 'never'.
+app/cart/page.tsx(18,32): error TS2362: The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+app/cart/page.tsx(19,28): error TS2365: Operator '>=' cannot be applied to types '() => number' and 'number'.
+app/cart/page.tsx(21,26): error TS2362: The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+app/cart/page.tsx(22,24): error TS2365: Operator '+' cannot be applied to types '() => number' and 'number'.
+app/cart/page.tsx(64,145): error TS2363: The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+app/cart/page.tsx(89,73): error TS2339: Property 'selectedSize' does not exist on type 'CartItem'.
+app/cart/page.tsx(89,94): error TS2339: Property 'selectedColor' does not exist on type 'CartItem'.
+app/cart/page.tsx(112,194): error TS2339: Property 'selectedColor' does not exist on type 'CartItem'.
+app/cart/page.tsx(112,224): error TS2339: Property 'selectedColor' does not exist on type 'CartItem'.
+app/cart/page.tsx(116,107): error TS2339: Property 'selectedSize' does not exist on type 'CartItem'.
+app/cart/page.tsx(127,105): error TS2339: Property 'selectedSize' does not exist on type 'CartItem'.
+app/cart/page.tsx(127,119): error TS2554: Expected 2 arguments, but got 4.
+app/cart/page.tsx(127,124): error TS2339: Property 'selectedColor' does not exist on type 'CartItem'.
+app/cart/page.tsx(134,105): error TS2339: Property 'selectedSize' does not exist on type 'CartItem'.
+app/cart/page.tsx(134,119): error TS2554: Expected 2 arguments, but got 4.
+app/cart/page.tsx(134,124): error TS2339: Property 'selectedColor' does not exist on type 'CartItem'.
+app/cart/page.tsx(149,92): error TS2554: Expected 1 arguments, but got 3.
+app/cart/page.tsx(149,97): error TS2339: Property 'selectedSize' does not exist on type 'CartItem'.
+app/cart/page.tsx(149,116): error TS2339: Property 'selectedColor' does not exist on type 'CartItem'.
+app/cart/page.tsx(202,94): error TS2345: Argument of type '() => number' is not assignable to parameter of type 'number'.
+app/products/[id]/page.tsx(201,89): error TS2304: Cannot find name 'Sparkles'.
+app/products/page.tsx(202,26): error TS2304: Cannot find name 'Link'.
+app/products/page.tsx(202,81): error TS2304: Cannot find name 'Link'.
+app/products/page.tsx(303,46): error TS2304: Cannot find name 'Link'.
+app/products/page.tsx(316,47): error TS2304: Cannot find name 'Link'.

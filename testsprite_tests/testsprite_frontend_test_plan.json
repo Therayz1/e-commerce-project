@@ -1,0 +1,1329 @@
+[
+  {
+    "id": "TC001",
+    "title": "Filter by category + price range, switch to List view, and open a product detail",
+    "description": "Verifies users can browse products, apply category and price filters, change view mode, and navigate to a product detail page.",
+    "category": "Product Listing & Discovery",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /products"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Loading\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Wait for element \"Product\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on category filter \"Women's Fashion\""
+      },
+      {
+        "type": "action",
+        "description": "Set the price range minimum to \"0\""
+      },
+      {
+        "type": "action",
+        "description": "Set the price range maximum to \"150\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"List\" view toggle"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first visible product item"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Validate product detail page loads after selecting a product from listings",
+    "description": "Verifies that clicking a product from the listing navigates to a product detail page and shows key product content.",
+    "category": "Product Listing & Discovery",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /products"
+      },
+      {
+        "type": "action",
+        "description": "Wait for element \"Product\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first visible product card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/products/\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Add to Cart\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Price\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "No-results empty state and Clear Filters restores results",
+    "description": "Verifies empty state appears when filters return no matches and Clear Filters restores product results.",
+    "category": "Product Listing & Discovery",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /products"
+      },
+      {
+        "type": "action",
+        "description": "Wait for element \"Product\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Select a Category filter that is likely to narrow results significantly"
+      },
+      {
+        "type": "action",
+        "description": "Select a Brand filter that is likely to conflict with the selected Category"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"No products\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Clear Filters\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Clear Filters\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Product\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Toggle between Grid and List view updates layout without page reload",
+    "description": "Verifies users can toggle view modes and the product presentation changes while staying on the same listing page.",
+    "category": "Product Listing & Discovery",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /products"
+      },
+      {
+        "type": "action",
+        "description": "Wait for element \"Product\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/products\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"List\" view toggle"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"List\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Grid\" view toggle"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Grid\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Sort by Price: Low to High updates visible ordering",
+    "description": "Verifies sorting by price low-to-high changes the product ordering in the listing.",
+    "category": "Product Listing & Discovery",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /products"
+      },
+      {
+        "type": "action",
+        "description": "Wait for element \"Product\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the sorting dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Select \"Price: Low to High\" from dropdown"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Price: Low to High\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Product\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Clear Filters resets multiple active filters at once",
+    "description": "Verifies that clearing filters removes applied Category/Brand constraints and returns to a broad result set.",
+    "category": "Product Listing & Discovery",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /products"
+      },
+      {
+        "type": "action",
+        "description": "Wait for element \"Product\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on a Category filter option"
+      },
+      {
+        "type": "action",
+        "description": "Click on a Brand filter option"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Clear Filters\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Clear Filters\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Product\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Filter persistence across view toggle (filters remain applied)",
+    "description": "Verifies applied filters remain active when switching between Grid and List views.",
+    "category": "Product Listing & Discovery",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /products"
+      },
+      {
+        "type": "action",
+        "description": "Wait for element \"Product\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on category filter \"Women's Fashion\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Women's Fashion\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"List\" view toggle"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Women's Fashion\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Grid\" view toggle"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Women's Fashion\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Sorting remains selected after changing view mode",
+    "description": "Verifies the selected sort option remains active when toggling between Grid and List views.",
+    "category": "Product Listing & Discovery",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /products"
+      },
+      {
+        "type": "action",
+        "description": "Wait for element \"Product\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the sorting dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Select \"Price: Low to High\" from dropdown"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Price: Low to High\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"List\" view toggle"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Price: Low to High\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Grid\" view toggle"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Price: Low to High\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Add a variant product to cart shows CartDrawer, toast, and updated subtotal/free-shipping progress",
+    "description": "Verifies that selecting required variants allows adding to cart and that the CartDrawer and confirmation UI update immediately.",
+    "category": "Add to Cart & Cart Management",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /products"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first product card in the product grid"
+      },
+      {
+        "type": "action",
+        "description": "Select an available size option"
+      },
+      {
+        "type": "action",
+        "description": "Select an available color option"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Add to Cart\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"CartDrawer\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"added\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Subtotal\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Add to Cart blocked when size is not selected (inline validation)",
+    "description": "Verifies the user cannot add an item without selecting size and sees the inline validation error.",
+    "category": "Add to Cart & Cart Management",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /products"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first product card in the product grid"
+      },
+      {
+        "type": "action",
+        "description": "Select an available color option"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Add to Cart\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Please select a size\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"CartDrawer\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Add to Cart blocked when color is not selected (inline validation)",
+    "description": "Verifies the user cannot add an item without selecting color and sees an inline validation message.",
+    "category": "Add to Cart & Cart Management",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /products"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first product card in the product grid"
+      },
+      {
+        "type": "action",
+        "description": "Select an available size option"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Add to Cart\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Please select a color\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"CartDrawer\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "CartDrawer quantity increment updates subtotal",
+    "description": "Verifies increasing quantity in the CartDrawer updates the displayed subtotal accordingly.",
+    "category": "Add to Cart & Cart Management",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /products"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first product card in the product grid"
+      },
+      {
+        "type": "action",
+        "description": "Select an available size option"
+      },
+      {
+        "type": "action",
+        "description": "Select an available color option"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Add to Cart\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"CartDrawer\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"+\" button for the cart line item quantity"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Subtotal\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "CartDrawer free-shipping progress changes after adding item",
+    "description": "Verifies the free-shipping progress indicator updates after an item is added to the cart.",
+    "category": "Add to Cart & Cart Management",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /products"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first product card in the product grid"
+      },
+      {
+        "type": "action",
+        "description": "Select an available size option"
+      },
+      {
+        "type": "action",
+        "description": "Select an available color option"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Add to Cart\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"CartDrawer\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Free shipping\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"away\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "Adding the same variant twice results in quantity increase (not a duplicate line)",
+    "description": "Verifies that adding an identical size/color variant again increases its quantity in the cart.",
+    "category": "Add to Cart & Cart Management",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /products"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first product card in the product grid"
+      },
+      {
+        "type": "action",
+        "description": "Select an available size option"
+      },
+      {
+        "type": "action",
+        "description": "Select an available color option"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Add to Cart\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"CartDrawer\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Add to Cart\" button again"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Qty\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "CartDrawer reflects variant details (size and color) for the added item",
+    "description": "Verifies the cart line item displays the selected size and color in the CartDrawer.",
+    "category": "Add to Cart & Cart Management",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /products"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first product card in the product grid"
+      },
+      {
+        "type": "action",
+        "description": "Select an available size option"
+      },
+      {
+        "type": "action",
+        "description": "Select an available color option"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Add to Cart\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"CartDrawer\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Size\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Color\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC016",
+    "title": "Cart item quantity cannot be decreased below 1 in CartDrawer",
+    "description": "Verifies the decrement action does not allow quantity to drop below 1 for a cart line item.",
+    "category": "Add to Cart & Cart Management",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /products"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first product card in the product grid"
+      },
+      {
+        "type": "action",
+        "description": "Select an available size option"
+      },
+      {
+        "type": "action",
+        "description": "Select an available color option"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Add to Cart\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"CartDrawer\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"-\" button for the cart line item quantity"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"1\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC017",
+    "title": "Complete checkout from cart through confirmation and verify cart is emptied",
+    "description": "Verifies the end-to-end checkout flow (shipping → payment → review → place order) and that the cart is cleared after confirmation.",
+    "category": "Checkout Process",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /cart"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Proceed to Checkout\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/checkout\""
+      },
+      {
+        "type": "action",
+        "description": "Fill shipping information"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Continue to Payment\""
+      },
+      {
+        "type": "action",
+        "description": "Fill mock payment details"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Review Order\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Place Order\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Processing...\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Order\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Order Number\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /cart"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Your cart is empty\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC018",
+    "title": "Checkout blocks progression when required shipping fields are empty",
+    "description": "Verifies field-level validation appears on Shipping and the user cannot proceed to Payment with missing required fields.",
+    "category": "Checkout Process",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /checkout"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Continue to Payment\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Required\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Shipping\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Payment\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC019",
+    "title": "Shipping validation clears after entering valid data and allows navigation to Payment step",
+    "description": "Verifies that correcting shipping inputs removes visible validation errors and advances to the Payment step.",
+    "category": "Checkout Process",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /checkout"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Continue to Payment\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Required\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Fill shipping information"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Continue to Payment\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Payment\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC020",
+    "title": "Payment step rejects invalid card details and keeps user on Payment",
+    "description": "Verifies payment validation prevents moving forward when mock credit card details are invalid.",
+    "category": "Checkout Process",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /checkout"
+      },
+      {
+        "type": "action",
+        "description": "Fill shipping information"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Continue to Payment\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Payment\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Fill mock payment details"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Review Order\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Invalid\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Payment\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC021",
+    "title": "Review step shows order summary details before placing order",
+    "description": "Verifies that the Review Order step is reachable with valid inputs and displays a visible order summary section.",
+    "category": "Checkout Process",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /checkout"
+      },
+      {
+        "type": "action",
+        "description": "Fill shipping information"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Continue to Payment\""
+      },
+      {
+        "type": "action",
+        "description": "Fill mock payment details"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Review Order\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Review\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Order Summary\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC022",
+    "title": "Place Order shows a processing state before confirmation",
+    "description": "Verifies that after placing an order, a visible processing state appears prior to the confirmation screen.",
+    "category": "Checkout Process",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /checkout"
+      },
+      {
+        "type": "action",
+        "description": "Fill shipping information"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Continue to Payment\""
+      },
+      {
+        "type": "action",
+        "description": "Fill mock payment details"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Review Order\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Place Order\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Processing...\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC023",
+    "title": "Confirmation page displays order number after successful checkout",
+    "description": "Verifies the confirmation state includes a visible order identifier (order number) after successful placement.",
+    "category": "Checkout Process",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /checkout"
+      },
+      {
+        "type": "action",
+        "description": "Fill shipping information"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Continue to Payment\""
+      },
+      {
+        "type": "action",
+        "description": "Fill mock payment details"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Review Order\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Place Order\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Order Number\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Thank you\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC024",
+    "title": "Returning to checkout after order shows no items to purchase (cart cleared)",
+    "description": "Verifies that after completing an order, the user cannot proceed with checkout items because the cart has been cleared.",
+    "category": "Checkout Process",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /checkout"
+      },
+      {
+        "type": "action",
+        "description": "Fill shipping information"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Continue to Payment\""
+      },
+      {
+        "type": "action",
+        "description": "Fill mock payment details"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Review Order\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Place Order\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Order Number\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /checkout"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Your cart is empty\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC025",
+    "title": "Complete the full 10-step quiz and open a recommended product detail page",
+    "description": "Verifies a user can start the quiz, complete all 10 steps, see the analyzing state, receive recommendations, and open a recommended product.",
+    "category": "AI Style Quiz",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /style-quiz"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Start Quiz\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start Quiz\""
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 1"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 2"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 3"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 4"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 5"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 6"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 7"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 8"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 9"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 10"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Analyzing\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Recommendations\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the first recommended product item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/products/\""
+      }
+    ]
+  },
+  {
+    "id": "TC026",
+    "title": "Inline validation appears when trying to proceed without selecting a required option",
+    "description": "Verifies the quiz prevents progression and shows an inline message when no option is selected on a required step.",
+    "category": "AI Style Quiz",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /style-quiz"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start Quiz\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Next\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Please select an option\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for the current step"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Next\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Step\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC027",
+    "title": "Fallback recommendations shown when AI fails to generate personalized results",
+    "description": "Verifies the quiz can show a fallback \"Featured picks\" recommendations view when personalized results are unavailable.",
+    "category": "AI Style Quiz",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /style-quiz"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start Quiz\""
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 1"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 2"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 3"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 4"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 5"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 6"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 7"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 8"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 9"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 10"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Analyzing\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Featured picks\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the first product in the \"Featured picks\" list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/products/\""
+      }
+    ]
+  },
+  {
+    "id": "TC028",
+    "title": "Start Quiz initializes Step 1 content and answer options are visible",
+    "description": "Verifies that clicking Start Quiz loads the first step with selectable image options.",
+    "category": "AI Style Quiz",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /style-quiz"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Start Quiz\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start Quiz\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Step 1\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"image options grid\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Next\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC029",
+    "title": "Selection state persists when moving forward from one step to the next",
+    "description": "Verifies that after selecting an option on a step, the user can proceed and the next step loads correctly.",
+    "category": "AI Style Quiz",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /style-quiz"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start Quiz\""
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 1"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Next\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Step 2\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"image options grid\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC030",
+    "title": "Analyzing animation appears after final step submission",
+    "description": "Verifies the transition from the final step into the AI analyzing state is shown to the user.",
+    "category": "AI Style Quiz",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /style-quiz"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start Quiz\""
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 1"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 2"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 3"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 4"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 5"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 6"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 7"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 8"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 9"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 10"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Analyzing\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC031",
+    "title": "Recommendations view shows multiple product items after quiz completion",
+    "description": "Verifies the results page shows a list/grid of recommendation items after analysis completes.",
+    "category": "AI Style Quiz",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /style-quiz"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start Quiz\""
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 1"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 2"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 3"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 4"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 5"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 6"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 7"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 8"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 9"
+      },
+      {
+        "type": "action",
+        "description": "Select an image option for Step 10"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Recommendations\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"recommended products list\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"recommended product item\" is visible"
+      }
+    ]
+  }
+]

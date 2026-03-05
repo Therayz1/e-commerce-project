@@ -1,0 +1,4 @@
+﻿app/products/page.tsx(202,26): error TS2304: Cannot find name 'Link'.
+app/products/page.tsx(202,81): error TS2304: Cannot find name 'Link'.
+app/products/page.tsx(303,46): error TS2304: Cannot find name 'Link'.
+app/products/page.tsx(316,47): error TS2304: Cannot find name 'Link'.

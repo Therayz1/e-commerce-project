@@ -1,0 +1,99 @@
+version: "2"
+type: frontend
+tech_stack:
+  - TypeScript
+  - Next.js 14
+  - Tailwind CSS
+  - Zustand
+  - Framer Motion
+  - shadcn/ui
+  - React Query
+routes:
+  - path: /
+    file: app/page.tsx
+    auth_required: false
+    description: Homepage with featured products, categories, and AI recommendations
+  - path: /products
+    file: app/products/page.tsx
+    auth_required: false
+    description: Product listing page with filters and sorting
+  - path: /products/[id]
+    file: app/products/[id]/page.tsx
+    auth_required: false
+    description: Product detail page with variants, gallery, and tabs
+  - path: /cart
+    file: app/cart/page.tsx
+    auth_required: false
+    description: Shopping cart page
+  - path: /checkout
+    file: app/checkout/page.tsx
+    auth_required: false
+    description: Multi-step checkout process
+  - path: /account
+    file: app/account/page.tsx
+    auth_required: false
+    description: User dashboard for profile, orders, and wishlist
+  - path: /style-quiz
+    file: app/style-quiz/page.tsx
+    auth_required: false
+    description: AI-powered style quiz
+  - path: /search
+    file: app/search/page.tsx
+    auth_required: false
+    description: Search results page
+features:
+  - name: Product Discovery
+    description: Browse and filter products across various categories with grid/list views
+    files:
+      - app/products/page.tsx
+      - components/ProductCard.tsx
+    entry_route: /products
+    user_interactions:
+      - Navigate to products page
+      - Select a category filter
+      - Adjust price range
+      - Toggle grid and list views
+      - Click a product card to view details
+  - name: Add to Cart
+    description: Add products with specific size and color variants to the cart
+    files:
+      - app/products/[id]/page.tsx
+      - lib/store/cartStore.ts
+      - components/CartDrawer.tsx
+    entry_route: /products/[id]
+    user_interactions:
+      - Select size variant
+      - Select color variant
+      - Click Add to Cart button
+      - View CartDrawer updating with the new item
+  - name: Checkout Process
+    description: Complete purchase through a multi-step checkout form
+    files:
+      - app/checkout/page.tsx
+      - lib/store/cartStore.ts
+    entry_route: /checkout
+    user_interactions:
+      - Fill shipping information
+      - Click Continue to Payment
+      - Fill mock payment details
+      - Click Review Order
+      - Click Place Order
+      - See success confetti and order confirmation
+  - name: AI Style Quiz
+    description: Complete a 10-step quiz to get personalized recommendations
+    files:
+      - app/style-quiz/page.tsx
+      - lib/store/quizStore.ts
+    entry_route: /style-quiz
+    user_interactions:
+      - Click Start Quiz
+      - Select image options for 10 steps
+      - See AI analyzing animation
+      - View personalized product recommendations
+known_limitations:
+  - issue: Local mocked data instead of real backend API
+    location: lib/mock-data.ts
+    impact: Data is not persisted across hard reloads or shared across sessions, orders do not actually process charges.
+  - issue: Authentication is mocked
+    location: lib/store/userStore.ts
+    impact: No real user sign-up or JWT token validation.
